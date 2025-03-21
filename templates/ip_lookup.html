@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск по IP</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="menu">
+        <h1>Поиск по IP</h1>
+        <form method="POST">
+            <input type="text" name="ip_address" placeholder="Введите IP">
+            <button type="submit" class="btn">Найти</button>
+        </form>
+        {% if ip_info %}
+            <div class="results">
+                <h2>Результаты:</h2>
+                <p><strong>IP:</strong> {{ ip_info.query }}</p>
+                <p><strong>Страна:</strong> {{ ip_info.country }}</p>
+                <p><strong>Город:</strong> {{ ip_info.city }}</p>
+                <p><strong>Регион:</strong> {{ ip_info.regionName }}</p>
+                <p><strong>Часовой пояс:</strong> {{ ip_info.timezone }}</p>
+                <p><strong>Провайдер:</strong> {{ ip_info.isp }}</p>
+            </div>
+        {% endif %}
+        <a href="/" class="btn">Назад</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запуск бота</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="menu">
+        <h1>Запуск Телеграм-бота</h1>
+        <form method="POST">
+            <input type="text" name="token" placeholder="Введите токен">
+            <button type="submit" class="btn">Запустить</button>
+        </form>
+
+        {% if success %}
+            <div class="alert success">{{ success }}</div>
+        {% endif %}
+
+        <div class="menu-item">
+            <h2>Выберите базу данных для скачивания:</h2>
+            <ul>
+                {% for file in files %}
+                <li>
+                    <a href="/download/{{ file }}" class="btn">{{ file }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <a href="/" class="btn">Назад</a>
+    </div>
+</body>
+</html>
